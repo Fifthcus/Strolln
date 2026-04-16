@@ -2,8 +2,6 @@
 //  Strolln_Watch_AppTests.swift
 //  Strolln Watch AppTests
 //
-//  Created by Michael Stetter on 4/16/26.
-//
 
 import Testing
 @testable import Strolln_Watch_App

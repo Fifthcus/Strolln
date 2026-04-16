@@ -2,8 +2,6 @@
 //  Strolln_Watch_AppUITests.swift
 //  Strolln Watch AppUITests
 //
-//  Created by Michael Stetter on 4/16/26.
-//
 
 import XCTest
 

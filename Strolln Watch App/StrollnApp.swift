@@ -2,8 +2,6 @@
 //  StrollnApp.swift
 //  Strolln Watch App
 //
-//  Created by Michael Stetter on 4/16/26.
-//
 
 import SwiftUI
 
