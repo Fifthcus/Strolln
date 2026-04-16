@@ -24,6 +24,7 @@ struct SecondaryView: View {
     let appDescription: String = """
     An app you can use to track your late night walks.
     """
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
     var body: some View {
         VStack {
             Text(appDescription)
@@ -31,8 +32,8 @@ struct SecondaryView: View {
             Spacer()
             Button(
                 action: {
-                
-            },
+                    hasSeenOnboarding = true
+                },
                 label: {
                     Text("Get Strolln")
                 }
@@ -43,14 +44,22 @@ struct SecondaryView: View {
 }
 
 struct ContentView: View {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
     var body: some View {
-        TabView {
-            PrimaryView()
-            SecondaryView()
+        if hasSeenOnboarding {
+            HomeView()
+        } else {
+            TabView {
+                PrimaryView()
+                SecondaryView()
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .onAppear {
+            UserDefaults.standard.set(false, forKey: "hasSeenOnboarding")
+        }
 }
