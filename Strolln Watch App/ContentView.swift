@@ -53,6 +53,7 @@ struct ContentView: View {
                 PrimaryView()
                 SecondaryView()
             }
+            .accessibilityIdentifier("OnboardingCarousel")
         }
     }
 }

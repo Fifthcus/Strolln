@@ -21,10 +21,23 @@ final class Strolln_Watch_AppUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
+    func test_Strolln_UI_Onboarding() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        app.launchArguments = ["UI-Testing"]
         app.launch()
+        
+        // Basic
+        XCTAssertTrue(app.staticTexts["Strolln"].waitForExistence(timeout: 3))
+        let onboardingCarousel = app.otherElements["OnboardingCarousel"]
+        onboardingCarousel.swipeLeft()
+        
+        // Ensure that button actually exists before tapping.
+        let button = app/*@START_MENU_TOKEN@*/.buttons["Get Strolln"]/*[[".otherElements.buttons[\"Get Strolln\"]",".buttons",".buttons[\"Get Strolln\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(button.waitForExistence(timeout: 3))
+        button.tap()
+        XCTAssertFalse(button.exists)
+        
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         // XCUIAutomation Documentation
