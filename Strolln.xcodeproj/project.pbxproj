@@ -59,6 +59,7 @@
 		E844944B2F90DD6D00F5CF66 /* Exceptions for "Strolln Watch App" folder in "Strolln Watch AppTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"App Views/ExerciseView.swift",
 				"App Views/HomeView.swift",
 			);
 			target = E84493DF2F90D3B200F5CF66 /* Strolln Watch AppTests */;
@@ -66,6 +67,7 @@
 		E844944C2F90DD6D00F5CF66 /* Exceptions for "Strolln Watch App" folder in "Strolln Watch AppUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"App Views/ExerciseView.swift",
 				"App Views/HomeView.swift",
 			);
 			target = E84493E92F90D3B200F5CF66 /* Strolln Watch AppUITests */;

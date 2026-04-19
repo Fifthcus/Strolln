@@ -7,7 +7,15 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            NavigationLink(destination: ExerciseView()) {
+                Image(systemName: "figure.walk")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+            }
+            .buttonStyle(.plain)
+            .modifier(HomeViewToolbarModifier())
+        }
     }
 }
 
