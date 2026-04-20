@@ -10,6 +10,11 @@ struct HomeViewToolbarModifier: ViewModifier {
         content
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "music.note")
+                    }
                     Spacer()
                     // History
                     Button(action: {
@@ -21,3 +26,10 @@ struct HomeViewToolbarModifier: ViewModifier {
             }
     }
 }
+
+
+/*
+ 
+ Potentiall add a button so the user may access Apple Music, if possible.
+ 
+ */
