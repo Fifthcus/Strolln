@@ -19,14 +19,8 @@ final class Strolln_Watch_AppUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    @MainActor
-    func test_Strolln_UI_Onboarding() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launchArguments = ["UI-Testing"]
-        app.launch()
-        
+    
+    func completeOnboarding(app: XCUIApplication) {
         // Basic
         XCTAssertTrue(app.staticTexts["Strolln"].waitForExistence(timeout: 3))
         let onboardingCarousel = app.otherElements["OnboardingCarousel"]
@@ -37,11 +31,35 @@ final class Strolln_Watch_AppUITests: XCTestCase {
         XCTAssertTrue(button.waitForExistence(timeout: 3))
         button.tap()
         XCTAssertFalse(button.exists)
-        
+    }
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // XCUIAutomation Documentation
-        // https://developer.apple.com/documentation/xcuiautomation
+    @MainActor
+    func test_Strolln_UI_Onboarding() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UI-Testing"]
+        app.launch()
+        completeOnboarding(app: app)
+    }
+    
+    @MainActor
+    func test_Strolln_UI_HomeView() throws {
+        // Setup
+        let app = XCUIApplication()
+        app.launchArguments = ["UI-Testing"]
+        app.launch()
+        completeOnboarding(app: app)
+        
+        // Home View
+        let beginStrollButton = app.buttons["strolln.begin"]
+        XCTAssertTrue(beginStrollButton.waitForExistence(timeout: 3))
+        beginStrollButton.tap()
+        
+        let ongoingStrollButton = app.images["strolln.ongoing"]
+        XCTAssertTrue(ongoingStrollButton.waitForExistence(timeout: 3))
+        
+        // Add testing for the buttons in the toolbar as the functionality is built out.
+        
+        
     }
 
     @MainActor

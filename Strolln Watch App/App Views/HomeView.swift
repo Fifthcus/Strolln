@@ -12,9 +12,11 @@ struct HomeView: View {
                 Image(systemName: "figure.walk")
                     .imageScale(.large)
                     .font(.largeTitle)
+                    .foregroundStyle(.white)
             }
-            .buttonStyle(.plain)
+            .tint(.black)
             .modifier(HomeViewToolbarModifier())
+            .accessibilityIdentifier("strolln.begin")
         }
     }
 }

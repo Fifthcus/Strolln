@@ -24,6 +24,7 @@ struct ExerciseView: View {
                                 }
                             }
                     )
+                    .accessibilityIdentifier("strolln.ongoing")
                 VStack {
                     Text("Time Elapsed")
                     Text("Heart Rate")
